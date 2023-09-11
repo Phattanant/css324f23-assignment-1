@@ -54,8 +54,17 @@ def h3(s):
     row = 0
     col = 0
     for i in range(9):
-        if (board[i] - 1) % 3 != i % 3:     # check column
-            col += 1
-        if (board[i] - 1) // 3 != i // 3:   # check row
+        # check if number is 0
+        if board[i] == 0:
+            num = 9
+        else:
+            num = board[i]
+
+        # check row
+        if (num - 1) // 3 != i // 3:
             row += 1
+
+        # check column
+        if (num - 1) % 3 != i % 3:     
+            col += 1
     return row + col
