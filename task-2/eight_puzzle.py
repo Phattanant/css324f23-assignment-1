@@ -51,4 +51,11 @@ def h1(s):
 def h3(s):
     # implement this function
     board, _, _ = s
-    return 0
+    row = 0
+    col = 0
+    for i in range(1,9):
+        if (board[i] - 1) % 3 != i % 3:     # check column
+            col += 1
+        if (board[i] - 1) // 3 != i // 3:   # check row
+            row += 1
+    return row + col
